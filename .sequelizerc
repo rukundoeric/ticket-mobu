@@ -4,7 +4,7 @@ require('regenerator-runtime');
 const path = require('path');
 
 module.exports = {
-  'config': path.resolve('./src/config', 'config.js'),
+  'config': path.resolve('./src/sequelize/config', 'config.json'),
   'models-path': path.resolve('./src/sequelize/models'),
   'seeders-path': path.resolve('./src/sequelize/seeders'),
   'migrations-path': path.resolve('./src/sequelize/migrations')
