@@ -5,7 +5,6 @@ import { glabalMiddleware } from './middleware';
 import db from './sequelize/models/index';
 import api from './api/routes';
 
-
 dotenv.config();
 
 const port = process.env.PORT || 7888;
