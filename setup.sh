@@ -17,3 +17,4 @@ DEV_DATABASE_URL=
 TEST_DATABASE_URL=
 EOF
 # yarn install
+# npx sequelize-cli model:generate --name User --attributes firstName:string,lastName:string,email:string

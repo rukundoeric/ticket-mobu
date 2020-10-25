@@ -3,7 +3,16 @@ import {
   decodeToken
 } from './_auth';
 
+import {
+ hashPassword,
+ comparePassword,
+ generatePassword
+} from './_password';
+
 export {
   generateToken,
-  decodeToken
+  decodeToken,
+  hashPassword,
+  comparePassword,
+  generatePassword
 }

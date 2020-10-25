@@ -1,5 +1,6 @@
 require('@babel/register');
 require('regenerator-runtime');
+require('dotenv').config();
 
 const path = require('path');
 
