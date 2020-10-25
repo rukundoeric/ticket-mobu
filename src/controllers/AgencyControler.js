@@ -7,6 +7,7 @@ const {agency}=models;
 class Agency{
 
  async createAgency(req,res){
+    
      try{
     const newAgency={
         agencyName: req.body.agencyName,
