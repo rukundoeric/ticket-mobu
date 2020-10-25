@@ -39,11 +39,12 @@
     "worker-farm": "^1.7.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.4.4",
-    "@babel/core": "^7.4.5",
-    "@babel/node": "^7.4.5",
-    "@babel/preset-env": "^7.4.5",
-    "@babel/register": "^7.4.4",
+    "@babel/core": "*",
+    "@babel/node": "*",
+    "babel-core": "*",
+    "@babel/preset-env": "*",
+    "@babel/register": "*",
+    "babel-node": "*",
     "chai": "^4.2.0",
     "chai-http": "^4.3.0",
     "eslint": "^5.16.0",
