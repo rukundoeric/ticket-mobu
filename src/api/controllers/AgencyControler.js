@@ -1,5 +1,5 @@
 import dotenv from 'dotenv';
-import models from '../sequelize/models';
+import models from '../../sequelize/models';
 
 dotenv.config();
 

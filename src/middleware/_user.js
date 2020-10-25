@@ -69,7 +69,23 @@ export default [
     }
     next();
   },
-  // Check if User is admin or owner [4]
+  // Check if User is moderator [4]
+  async (req, res, next) => {
+    const { userId } = req.user;
+    const { role } = await users.findOne({
+      where: { userId },
+    });
+    if (role !== "moderator") {
+      return res.status(403).json({
+        status: 403,
+        error: {
+          message: "You seem not to be authorized to access this content",
+        },
+      });
+    }
+    next();
+  },
+  // Check if User is admin or owner [5]
   async (req, res, next) => {
     const { userId } = req.params;
     const {
@@ -86,7 +102,7 @@ export default [
       });
     }
   },
-  // Check if User exist {By UserId} [5]
+  // Check if User exist {By UserId} [6]
   async (req, res, next) => {
     const { userId } = req.params;
     const user = await users.findOne({
@@ -103,7 +119,7 @@ export default [
     req.user = user;
     next();
   },
-  // Check if User exist {By UserId} [6]
+  // Check if User exist {By UserId} [7]
   async (req, res, next) => {
     const { key } = req.params;
     const { SUPER_ADMIN_PASSWORD } = process.env;
@@ -111,5 +127,22 @@ export default [
       return res.redirect("/pagenotfound");
     }
     next();
+  },
+  //Check if user is admin or moderator[8]
+   async (req, res, next) => {
+    const { userId } = req.params;
+    const {
+      dataValues: { userId: myId, role },
+    } = req.user;
+    if (role === "admin" || role === "moderator") {
+      next();
+    } else {
+      return res.status(403).json({
+        status: 403,
+        error: {
+          message: "You seem not to be authorized to access this content!!!",
+        },
+      });
+    }
   },
 ];
