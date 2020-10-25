@@ -14,7 +14,7 @@ glabalMiddleware(app);
 
 const { sequelize } = db;
 
-app.get('/', api);
+app.use('/', api);
 app.use((req, res) => res.status(404).json({
   status: 404,
   error: {
