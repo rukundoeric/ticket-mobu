@@ -3,7 +3,7 @@ import { v4 as userId } from "uuid";
 import models from "../../sequelize/models";
 import { hashPassword, generatePassword as psw } from "../../helpers";
 
-const { User } = models;
+const { users } = models;
 
 /**
  * @Author - Eric prestein
@@ -16,17 +16,16 @@ class userController {
    * @returns {object} - returns created user
    */
   static async createUser(req, res) {
-    const { firstName, lastName, email, role } = req.body;
+    const { firstName, lastName, email, phone, role } = req.body;
     const password = await hashPassword(psw);
-    const { dataValues } = await User.create({
+    const { dataValues } = await users.create({
       userId: userId(),
       firstName,
       lastName,
       email,
-      password,
+      phone,
       role,
-      blocked: false,
-      image: "default",
+      password,
     });
     return res.status(201).json({
       status: 201,
@@ -89,7 +88,7 @@ class userController {
    * @returns {object} - returns created user
    */
   static async getUsers(req, res) {
-    const users = await User.findAll({});
+    const users = await users.findAll({});
     return res.status(200).json({
       status: 200,
       users,
@@ -104,7 +103,7 @@ class userController {
    */
   static async getUser(req, res) {
     const { userId: id } = req.params;
-    const user = await User.findOne({ where: { userId: id } });
+    const user = await users.findOne({ where: { userId: id } });
     return res.status(200).json({
       status: 200,
       data: user,
@@ -119,7 +118,7 @@ class userController {
    */
   static async blockUser(req, res) {
     const { userId: id } = req.params;
-    const result = await User.update(
+    const result = await users.update(
       { blocked: true },
       { where: { userId: id } }
     );
@@ -140,7 +139,7 @@ class userController {
    */
   static async unblockUser(req, res) {
     const { userId: id } = req.params;
-    const result = await User.update(
+    const result = await users.update(
       { blocked: false },
       { where: { userId: id } }
     );
@@ -161,7 +160,7 @@ class userController {
    */
   static async deleteUser(req, res) {
     // const { userId: id } = req.params;
-    const result = await User.destroy({ where: { firstName: "eric" } });
+    const result = await users.destroy({ where: { firstName: "eric" } });
     return res.status(200).json({
       status: 200,
       data: {

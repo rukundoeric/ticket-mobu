@@ -1,3 +1,5 @@
+/* eslint-disable linebreak-style */
+/* eslint-disable import/prefer-default-export */
 import models from "../sequelize/models";
 import { decodeToken } from "../helpers";
 
@@ -14,9 +16,9 @@ export const verifyToken = async (req, res, next) => {
     });
   }
   try {
-    const { email } = await decodeToken(token);
+    const { userId } = await decodeToken(token);
     try {
-      const user = await users.findOne({ where: { email } });
+      const user = await users.findOne({ where: { userId } });
       if (!user) {
         return res.status(400).json({
           status: 400,

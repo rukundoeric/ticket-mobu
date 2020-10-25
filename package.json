@@ -35,7 +35,7 @@
     "regenerator-runtime": "^0.13.5",
     "sequelize": "^5.21.11",
     "swagger-ui-express": "^4.1.4",
-    "uuid": "^8.1.0",
+    "uuid": "^8.3.1",
     "worker-farm": "^1.7.0"
   },
   "devDependencies": {
