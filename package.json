@@ -17,8 +17,8 @@
   },
   "homepage": "https://github.com/rukundoeric/ticket-mobu#readme",
   "dependencies": {
-    "@hapi/joi": "15.0.3",
-    "bcrypt": "^5.0.0",
+    "@hapi/joi": "^15.0.3",
+    "bcrypt": "^4.0.1",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
@@ -39,11 +39,12 @@
     "worker-farm": "^1.7.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.4.4",
-    "@babel/core": "^7.4.5",
-    "@babel/node": "^7.4.5",
-    "@babel/preset-env": "^7.4.5",
-    "@babel/register": "^7.4.4",
+    "@babel/core": "*",
+    "@babel/node": "*",
+    "babel-core": "*",
+    "@babel/preset-env": "*",
+    "@babel/register": "*",
+    "babel-node": "*",
     "chai": "^4.2.0",
     "chai-http": "^4.3.0",
     "eslint": "^5.16.0",

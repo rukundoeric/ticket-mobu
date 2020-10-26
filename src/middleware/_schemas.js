@@ -59,4 +59,37 @@ schemas.createUser = Joi.object().keys({
     .label("Role is required, it must be admin or moderator"),
 });
 
+schemas.createAgency=Joi.object().keys({
+  agencyName: Joi.string()
+  .trim()
+  .required()
+  .label(
+    "Enter agency name"
+  ),
+  agencyLogo: Joi.string()
+  .trim()
+  .required()
+  .min(3)
+  .label(
+    "Agency logo is required"
+  ),
+  agencyPhone: Joi.string()
+  .min(3)
+  .required()
+  .label(
+    "Agency Phone is required"
+  ),
+  agencyEmail:  Joi.string()
+  .trim()
+  .lowercase()
+  .email()
+  .required()
+  .label('Agency email is required and should look like this : example@email.com!'),
+  agencyWebsite: Joi.string()
+  .required()
+  .label("Agency web is required")
+});
+
+
+
 export default schemas;
