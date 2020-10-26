@@ -2,11 +2,11 @@ import models from "../sequelize/models";
 
 const { agency } = models;
 export default [
-//Check agency name[0]
-async (req, res, next) => {
-    const {agencyName } = req.body;
+  //Check agency name[0]
+  async (req, res, next) => {
+    const { agencyName } = req.body;
     const agencyRes = await agency.findOne({
-      where: { agencyName},
+      where: { agencyName },
     });
     if (agencyRes) {
       return res.status(400).json({
@@ -19,10 +19,10 @@ async (req, res, next) => {
     next();
   },
   //Check agency email[1]
-async (req, res, next) => {
+  async (req, res, next) => {
     const { agencyEmail } = req.body;
     const agencyRes = await agency.findOne({
-      where: { agencyEmail},
+      where: { agencyEmail },
     });
     if (agencyRes) {
       return res.status(400).json({
@@ -34,11 +34,11 @@ async (req, res, next) => {
     }
     next();
   },
-    //Check agencyPhone[2]
-async (req, res, next) => {
+  //Check agencyPhone[2]
+  async (req, res, next) => {
     const { agencyPhone } = req.body;
     const agencyRes = await agency.findOne({
-      where: { agencyPhone},
+      where: { agencyPhone },
     });
     if (agencyRes) {
       return res.status(400).json({
@@ -52,10 +52,10 @@ async (req, res, next) => {
   },
 
   //Check wesite[3]
-async (req, res, next) => {
+  async (req, res, next) => {
     const { agencyWebsite } = req.body;
     const agencyRes = await agency.findOne({
-      where: { agencyWebsite},
+      where: { agencyWebsite },
     });
     if (agencyRes) {
       return res.status(400).json({
@@ -67,6 +67,4 @@ async (req, res, next) => {
     }
     next();
   },
-
-  
 ];
