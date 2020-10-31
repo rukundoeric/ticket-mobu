@@ -1,11 +1,13 @@
 import express from "express";
-import { createAgency } from "../controllers/AgencyControler";
+import Agency from "../controllers/AgencyControler";
 import {
   userMiddleware,
   agencyMidleware,
   validator,
   verifyToken,
 } from "../../middleware";
+
+const { createAgency ,getAllAgencies }= Agency;
 const agencyRouter = express.Router();
 
 agencyRouter.post(
@@ -19,5 +21,6 @@ agencyRouter.post(
   userMiddleware[8],
   createAgency
 );
+agencyRouter.get("/agencies",getAllAgencies)
 
 export default agencyRouter;
