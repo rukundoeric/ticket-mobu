@@ -130,10 +130,10 @@ export default [
   },
   //Check if user is admin or moderator[8]
    async (req, res, next) => {
-    const { userId } = req.params;
     const {
-      dataValues: { userId: myId, role },
+      dataValues: { role },
     } = req.user;
+
     if (role === "admin" || role === "moderator") {
       next();
     } else {
