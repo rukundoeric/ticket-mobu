@@ -126,6 +126,34 @@ schemas.createAgency=Joi.object().keys({
   .label("Agency web is required")
 });
 
+schemas.createJourney=Joi.object().keys({
+  origin: Joi.string()
+  .trim()
+  .required()
+  .label(
+    "Provide origin"
+  ),
+  destination: Joi.string()
+  .trim()
+  .required()
+  .min(3)
+  .label(
+    "Provide destination"
+  ),
+  price:Joi.number()
+  .required()
+  .label(
+    "Provide price"
+  ),
+  availableSits:Joi.number()
+
+  .required()
+  .label(
+    "Provide available sits"
+  )
+});
+
+
 
 
 export default schemas;

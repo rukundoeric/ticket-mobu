@@ -4,9 +4,10 @@ module.exports = {
     return queryInterface.createTable('agencies', {
       id: {
         allowNull: false,
-        autoIncrement: true,
+        autoIncrement: false,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.UUID,
+        defaultValue: Sequelize.UUIDV4
       },
       agencyName: {
         type: Sequelize.STRING
@@ -14,10 +15,10 @@ module.exports = {
       agencyLogo: {
         type: Sequelize.STRING
       },
-      agencyEmail: {
+      agencyPhone: {
         type: Sequelize.STRING
       },
-      agencyPhone: {
+      agencyEmail: {
         type: Sequelize.STRING
       },
       agencyWebsite: {

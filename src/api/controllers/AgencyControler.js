@@ -1,19 +1,14 @@
 import dotenv from "dotenv";
 import models from "../../sequelize/models";
+import { v4 as agencyId } from "uuid";
 
 dotenv.config();
 
 const { agency } = models;
-
-class Agency {
-  /**
-   * creating a new user
-   * @param {object} req - Request.
-   * @param {object} res - Response.
-   * @returns {object} - returns created user
-   */
+class AgencyControler {
   static async createAgency(req, res) {
     const newAgency = {
+      id:agencyId(),
       agencyName: req.body.agencyName,
       agencyLogo: req.body.agencyLogo,
       agencyEmail: req.body.agencyEmail,
@@ -26,7 +21,13 @@ class Agency {
 
    return res.status(201).json({
       status: 201,
-      data: agencyRes,
+      data: {
+        agencyName: agencyRes.agencyName,
+        agencyLogo: agencyRes.agencyLogo,
+        agencyEmail: agencyRes.agencyEmail,
+        agencyWebsite:agencyRes.agencyWebsite,
+        agencyPhone:agencyRes.agencyWebsite
+      },
     });
   }
 
@@ -42,4 +43,4 @@ class Agency {
   }
 }
 
-export default Agency;
+export default AgencyControler;
