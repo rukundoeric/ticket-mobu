@@ -9,7 +9,6 @@ import {
 
 const { createAgency ,getAllAgencies }= AgencyControler;
 const agencyRouter = express.Router();
-const {createAgency}=AgencyControler;
 
 agencyRouter.post(
   "/newagency",

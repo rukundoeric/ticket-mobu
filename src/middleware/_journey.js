@@ -8,7 +8,7 @@ export default [
     const jOrigin=origin;
     const jDestination=destination;
     const agencyRes = await journey.findOne({
-      where: { origin:jOrigin, destination:jDestination,agency_id:'2999c6e7-d17c-4457-868f-0f9e542c242a' },
+      where: { origin:jOrigin, destination:jDestination,agency_id: req.user.agency_id},
     });
     if (agencyRes) {
       return res.status(400).json({
