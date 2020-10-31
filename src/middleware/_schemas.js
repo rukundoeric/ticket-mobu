@@ -59,6 +59,42 @@ schemas.createUser = Joi.object().keys({
     .label("Role is required, it must be admin or moderator"),
 });
 
+schemas.createAgencyUser = Joi.object().keys({
+  firstName: Joi.string()
+    .trim()
+    .required()
+    .regex(/^[A-Za-z_-]+$/)
+    .min(3)
+    .label(
+      "First name is required, it must have at least 3 letters and must contain only letters, underscores(_) and hyphens (-)"
+    ),
+  lastName: Joi.string()
+    .trim()
+    .required()
+    .regex(/^[A-Za-z_.-]+$/)
+    .min(3)
+    .label(
+      "Last name is required, it must have at least 3 letters and must contain only letters, underscores(_) and hyphens (-)"
+    ),
+  email,
+  phone: Joi.string()
+    .min(3)
+    .required()
+    .label(
+      "Phone is required,  it must have at least 3 letters and must contain only letters"
+    ),
+  agency_id: Joi.string()
+    .min(1)
+    .required()
+    .label(
+      "Agency is required,  it must have at least 1 letter and must contain only letters"
+    ),
+  role: Joi.string()
+    .valid("manager", "teller")
+    .required()
+    .label("Role is required, it must be manager or teller"),
+});
+
 schemas.createAgency=Joi.object().keys({
   agencyName: Joi.string()
   .trim()

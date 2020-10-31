@@ -1,7 +1,8 @@
 /* eslint-disable linebreak-style */
 import { v4 as userId } from "uuid";
 import models from "../../sequelize/models";
-import { hashPassword, generatePassword as psw } from "../../helpers";
+import { hashPassword } from "../../helpers";
+import pswGenerator from 'generate-password';
 
 const { users } = models;
 
@@ -17,6 +18,11 @@ class userController {
    */
   static async createUser(req, res) {
     const { firstName, lastName, email, phone, role } = req.body;
+    let psw = pswGenerator.generate({
+      length: 10,
+      numbers: true,
+      uppercase: true,
+    });
     const password = await hashPassword(psw);
     const { dataValues } = await users.create({
       userId: userId(),
