@@ -1,5 +1,5 @@
 import express from "express";
-import Agency from "../controllers/AgencyControler";
+import AgencyControler from "../controllers/AgencyControler";
 import {
   userMiddleware,
   agencyMidleware,
@@ -7,7 +7,7 @@ import {
   verifyToken,
 } from "../../middleware";
 
-const { createAgency ,getAllAgencies }= Agency;
+const { createAgency ,getAllAgencies }= AgencyControler;
 const agencyRouter = express.Router();
 
 agencyRouter.post(
