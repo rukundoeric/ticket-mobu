@@ -3,10 +3,8 @@ module.exports = (sequelize, DataTypes) => {
   const journey = sequelize.define(
     "journey",
     {
-      journey_id: DataTypes.STRING,
       origin: DataTypes.STRING,
       destination: DataTypes.STRING,
-      time_to_go: DataTypes.STRING,
       price: DataTypes.FLOAT,
       available_sits: DataTypes.INTEGER,
       status: DataTypes.STRING,
@@ -16,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
     {}
   );
   journey.associate = function (models) {
-    // associations can be defined here
+    // // associations can be defined here
     journey.belongsTo(models.agency, {
       foreignKey: "agency_id",
       target_key: "agency_id", 

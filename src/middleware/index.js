@@ -4,6 +4,7 @@ import validator from "./_validator";
 import userMiddleware from "./_user";
 import agencyMidleware from './_agency';
 import agencyUserMiddleware from './_agency_users';
+import journeyMiddleware from './_journey';
 
 export {
   glabalMiddleware,
@@ -13,4 +14,5 @@ export {
   userMiddleware,
   agencyMidleware,
   agencyUserMiddleware,
+  journeyMiddleware
 };

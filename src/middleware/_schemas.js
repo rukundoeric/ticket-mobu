@@ -140,11 +140,16 @@ schemas.createJourney=Joi.object().keys({
   .label(
     "Provide destination"
   ),
-  timeToGo:Joi.string()
-  .min(3)
+  price:Joi.number()
   .required()
   .label(
-    "Provide time"
+    "Provide price"
+  ),
+  availableSits:Joi.number()
+
+  .required()
+  .label(
+    "Provide available sits"
   )
 });
 
