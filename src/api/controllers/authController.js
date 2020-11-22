@@ -14,10 +14,16 @@ class authController {
   static async login(req, res) {
     const { password } = req.body;
     const { user } = req;
-    const { userId, email } = user;
+    const { email, firstName, lastName, phone, role } = user;
     const isPasswordCorrect = await comparePassword(password, user.password);
     if (isPasswordCorrect) {
-      const token = await generateToken({ userId, email });
+      const token = await generateToken({
+        email,
+        firstName,
+        lastName,
+        phone,
+        role,
+      });
 
       return res.status(200).json({
         status: 200,
